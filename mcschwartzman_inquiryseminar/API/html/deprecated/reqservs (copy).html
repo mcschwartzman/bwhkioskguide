@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<SCRIPT LANGUAGE="javascript" src = "../javascript/main.js"></SCRIPT>
+	<link rel="stylesheet" href="../css/styles.css">
+	
+	<title>Requesting a Service</title>
+	
+</head>
+
+<body>
+
+	<div id="main">
+
+		<div class = "container">
+			<h1>Service Requests</h1>
+		</div>
+
+		<h2>Internal Services</h2>
+
+		<div class = "container">
+			<p>
+				Standard Internal Service Requests are handled through an SQL database that stores each request for viewing by Administrative users later. The createService function shown below takes in a user input String for title, a Node as a location to be serviced, and a secondary User as the desired fulfiller.
+			</p>
+		</div>
+
+		<code>
+
+			public static ServiceRequest createService(String title, String description, ServiceType type, User requester, Node location, User desired_fulfiller, Boolean to_epic) {
+        		ServiceRequest sr = new ServiceRequest(title, description, type, requester, location, desired_fulfiller);
+        		if(to_epic) { 
+        			EpicWrapper.send2Epic(sr); 
+        		}
+        		return sr;
+    		}
+
+
+
+		</code>
+
+	</div>
+
+</body>

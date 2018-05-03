@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<SCRIPT LANGUAGE="javascript" src = "../javascript/main.js"></SCRIPT>
+	<link rel="stylesheet" href="../css/styles.css">
+	
+	<title>Squonk API</title>
+	
+</head>
+
+
+<body>
+	<div class="flex-container">
+	<header>
+		<a href="../html/index.html">
+			<div class = "logo">
+				<img src = "../media/squonks.jpg">
+			</div>
+		</a>
+		<div class = "subject">
+			<h1>SQUONK</h1>
+		</div>
+		
+	</header>
+
+	<nav class = "nav">
+		<ul>
+			<li><a href="../html/index.html"><div class = "button">About</div></a></li>
+			<li><a href="../html/reqservs.html"><div class = "button">Standard Services</div></a></li>
+			<li><a href="../html/security.html"><div class = "button">Security Requests</div></a></li>
+			<li><a href="../html/gift.html"><div class = "button">Gift Shop Requests</div></a></li>
+			<li><a href="../html/transport.html"><div class = "button">Transportation Requests</div></a></li>
+			<li><a href="../html/transform.html"><div class = "button">Affine Transformation</div></a></li>
+			<li><a href="../html/spill.html"><div class = "button">Spill Request</div></a></li>
+			<li><a href="../html/voice.html"><div class = "button">Voice Requests</div></a></li>
+			<li><a href="../html/rooms.html"><div class = "button">Room Service</div></a></li>
+			<li><a href="../html/sanitize.html"><div class = "button">Sanitation</div></a></li>
+			<li><a href="../html/prescribe.html"><div class = "button">Prescriptions</div></a></li>
+			<li><a href="../html/tech.html"><div class = "button">Tech Support</div></a></li>
+			<li><a href="../html/epic.html"><div class = "button">Epic Integration</div></a></li>
+			
+		</ul>
+	</nav>	
+
+		<article class="article">
+			<h2>Voice Recognition</h2>
+			<p>A standalone voice controllable interface for managing Language Interpreter requests, Religious Services requests, and Security requests.</p> 
+
+			<p>API class is edu.wpi.cs3733d18.teamF.api.ServiceRequest.</p>
+
+			<p>API class is SpillRequest.SpillRequest.</p>
+
+			<p><strong>Gradle Install String: </strong>[group: 'd18.teamF', name: 'VoiceRecognition', version: '1.1.0']</p>
+			
+
+			<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #555555; font-weight: bold">@FXML</span>
+    Button voice_recognition_box<span style="color: #333333">;</span>
+
+    <span style="color: #888888">/**</span>
+<span style="color: #888888">     * Implementation of Team F&#39;s API, which implements voice control assistance for several different requests.</span>
+<span style="color: #888888">     */</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">onVoiceRecognitionClick</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+        Timeout<span style="color: #333333">.</span><span style="color: #0000CC">stop</span><span style="color: #333333">();</span>
+        ServiceRequest f_api <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> ServiceRequest<span style="color: #333333">();</span>
+        <span style="color: #888888">//f_api.initVoice();</span>
+        f_api<span style="color: #333333">.</span><span style="color: #0000CC">run</span><span style="color: #333333">(-</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">,</span> <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">1000</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">631</span><span style="color: #333333">,</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">,</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">,</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">);</span>
+        Timeout<span style="color: #333333">.</span><span style="color: #0000CC">start</span><span style="color: #333333">();</span>
+    <span style="color: #333333">}</span>
+</pre></div>
+
+
+
+
+
+		</article>
+
+		<footer>Mathew Schwartzman</footer>
+
+	</div>
+
+
+</body>
+</html>

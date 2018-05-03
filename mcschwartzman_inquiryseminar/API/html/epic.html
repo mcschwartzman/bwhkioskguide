@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<SCRIPT LANGUAGE="javascript" src = "../javascript/main.js"></SCRIPT>
+	<link rel="stylesheet" href="../css/styles.css">
+	
+	<title>Squonk API</title>
+	
+</head>
+
+
+<body>
+	<div class="flex-container">
+	<header>
+		<a href="../html/index.html">
+			<div class = "logo">
+				<img src = "../media/squonks.jpg">
+			</div>
+		</a>
+		<div class = "subject">
+			<h1>SQUONK</h1>
+		</div>
+		
+	</header>
+
+	<nav class = "nav">
+		<ul>
+			<li><a href="../html/index.html"><div class = "button">About</div></a></li>
+			<li><a href="../html/reqservs.html"><div class = "button">Standard Services</div></a></li>
+			<li><a href="../html/security.html"><div class = "button">Security Requests</div></a></li>
+			<li><a href="../html/gift.html"><div class = "button">Gift Shop Requests</div></a></li>
+			<li><a href="../html/transport.html"><div class = "button">Transportation Requests</div></a></li>
+			<li><a href="../html/transform.html"><div class = "button">Affine Transformation</div></a></li>
+			<li><a href="../html/spill.html"><div class = "button">Spill Request</div></a></li>
+			<li><a href="../html/voice.html"><div class = "button">Voice Requests</div></a></li>
+			<li><a href="../html/rooms.html"><div class = "button">Room Service</div></a></li>
+			<li><a href="../html/sanitize.html"><div class = "button">Sanitation</div></a></li>
+			<li><a href="../html/prescribe.html"><div class = "button">Prescriptions</div></a></li>
+			<li><a href="../html/tech.html"><div class = "button">Tech Support</div></a></li>
+			<li><a href="../html/epic.html"><div class = "button">Epic Integration</div></a></li>
+			
+		</ul>
+	</nav>	
+
+		<article class="article">
+			<h2>Epic Integration</h2>
+			<p>For some requests, the application contains built-in support for Epic systems. Epic is the standard in Hospital databases and task management. In the code example below, the task in question is the administration of medications. A task is created in the UI and passed through as an endpoint for the Epic server.</p> 
+
+
+<p>Further information about Epic can be found <a href="https://www.epic.com/software">here</a>.</p>
+
+			<p><strong>Gradle Install String: </strong>[group: 'd18.teamS', name: 'ComputerService', version: '1.1.1']</p>
+
+			<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;max-width:800px;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #555555; font-weight: bold">@FXML</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">submitReport</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+        <span style="color: #888888">// TODO EPIC interaction</span>
+
+        EpicWrapper<span style="color: #333333">.</span><span style="color: #0000CC">send2Epic</span><span style="color: #333333">(</span>ServiceRequest<span style="color: #333333">.</span><span style="color: #0000CC">createService</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Medication Report&quot;</span><span style="color: #333333">,</span> <span style="background-color: #fff0f0">&quot;Patient&#39;s medication report.&quot;</span><span style="color: #333333">,</span> Storage<span style="color: #333333">.</span><span style="color: #0000CC">getInstance</span><span style="color: #333333">().</span><span style="color: #0000CC">getServiceTypesByName</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Medical&quot;</span><span style="color: #333333">).</span><span style="color: #0000CC">get</span><span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">),</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">,</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">,</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">,</span> <span style="color: #008800; font-weight: bold">true</span><span style="color: #333333">));</span>
+        Alert alert <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Alert<span style="color: #333333">(</span>Alert<span style="color: #333333">.</span><span style="color: #0000CC">AlertType</span><span style="color: #333333">.</span><span style="color: #0000CC">INFORMATION</span><span style="color: #333333">);</span>
+        alert<span style="color: #333333">.</span><span style="color: #0000CC">setTitle</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Service Request Created&quot;</span><span style="color: #333333">);</span>
+        alert<span style="color: #333333">.</span><span style="color: #0000CC">setHeaderText</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Service Request Created&quot;</span><span style="color: #333333">);</span>
+        alert<span style="color: #333333">.</span><span style="color: #0000CC">setContentText</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Your service request was created successfully.&quot;</span><span style="color: #333333">);</span>
+        alert<span style="color: #333333">.</span><span style="color: #0000CC">showAndWait</span><span style="color: #333333">();</span>
+
+        Main<span style="color: #333333">.</span><span style="color: #0000CC">switchScenes</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Nurse View&quot;</span><span style="color: #333333">,</span> <span style="background-color: #fff0f0">&quot;/NurseHome.fxml&quot;</span><span style="color: #333333">);</span>
+    <span style="color: #333333">}</span>
+</pre></div>
+
+
+
+
+
+
+
+
+		</article>
+
+		<footer>Mathew Schwartzman</footer>
+
+	</div>
+
+
+</body>
+</html>
