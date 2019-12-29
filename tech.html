@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<SCRIPT LANGUAGE="javascript" src = "../javascript/main.js"></SCRIPT>
+	<link rel="stylesheet" href="../css/styles.css">
+	
+	<title>Squonk API</title>
+	
+</head>
+
+
+<body>
+	<div class="flex-container">
+	<header>
+		<a href="../html/index.html">
+			<div class = "logo">
+				<img src = "../media/squonks.jpg">
+			</div>
+		</a>
+		<div class = "subject">
+			<h1>SQUONK</h1>
+		</div>
+		
+	</header>
+
+	<nav class = "nav">
+		<ul>
+			<li><a href="../html/index.html"><div class = "button">About</div></a></li>
+			<li><a href="../html/reqservs.html"><div class = "button">Standard Services</div></a></li>
+			<li><a href="../html/security.html"><div class = "button">Security Requests</div></a></li>
+			<li><a href="../html/gift.html"><div class = "button">Gift Shop Requests</div></a></li>
+			<li><a href="../html/transport.html"><div class = "button">Transportation Requests</div></a></li>
+			<li><a href="../html/transform.html"><div class = "button">Affine Transformation</div></a></li>
+			<li><a href="../html/spill.html"><div class = "button">Spill Request</div></a></li>
+			<li><a href="../html/voice.html"><div class = "button">Voice Requests</div></a></li>
+			<li><a href="../html/rooms.html"><div class = "button">Room Service</div></a></li>
+			<li><a href="../html/sanitize.html"><div class = "button">Sanitation</div></a></li>
+			<li><a href="../html/prescribe.html"><div class = "button">Prescriptions</div></a></li>
+			<li><a href="../html/tech.html"><div class = "button">Tech Support</div></a></li>
+			<li><a href="../html/epic.html"><div class = "button">Epic Integration</div></a></li>
+			
+		</ul>
+	</nav>	
+
+		<article class="article">
+			<h2>Tech Support</h2>
+			<p>Computer service, allows for registration of device and ticket creation/resolution.</p> 
+
+			<p>API class is edu.wpi.cs3733d18.SquonksAPI.controller.SquonksAPI. Run with: </p><code>
+
+SquonksAPI squonks_api = new SquonksAPI(); <br/>
+squonks_api.run(e->OnPathFindClick(e));<br/>
+
+private void onPathFindClick(String node_id){
+    // your pathfinding function call here
+} </code>
+
+<p>Null can also be passed into the run function.</p>
+
+			<p><strong>Gradle Install String: </strong>[group: 'd18.teamS', name: 'ComputerService', version: '1.1.1']</p>
+
+			<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #555555; font-weight: bold">@FXML</span>
+    Button it_request<span style="color: #333333">;</span>
+
+    <span style="color: #888888">/**</span>
+<span style="color: #888888">     * Implementation of our own API, which implements an IT service.</span>
+<span style="color: #888888">     */</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">onITRequest</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+        Timeout<span style="color: #333333">.</span><span style="color: #0000CC">stop</span><span style="color: #333333">();</span>
+        SquonksAPI squonks_api <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> SquonksAPI<span style="color: #333333">();</span>
+        squonks_api<span style="color: #333333">.</span><span style="color: #0000CC">run</span><span style="color: #333333">(</span>e <span style="color: #333333">-&gt;</span> onPathFindClick<span style="color: #333333">(</span>e<span style="color: #333333">));</span>
+        Timeout<span style="color: #333333">.</span><span style="color: #0000CC">start</span><span style="color: #333333">();</span>
+    <span style="color: #333333">}</span>
+</pre></div>
+
+
+
+
+
+
+
+		</article>
+
+		<footer>Mathew Schwartzman</footer>
+
+	</div>
+
+
+</body>
+</html>

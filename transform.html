@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<SCRIPT LANGUAGE="javascript" src = "../javascript/main.js"></SCRIPT>
+	<link rel="stylesheet" href="../css/styles.css">
+	
+	<title>Squonk API</title>
+	
+</head>
+
+
+<body>
+	<div class="flex-container">
+	<header>
+		<a href="../html/index.html">
+			<div class = "logo">
+				<img src = "../media/squonks.jpg">
+			</div>
+		</a>
+		<div class = "subject">
+			<h1>SQUONK</h1>
+		</div>
+		
+	</header>
+
+	<nav class = "nav">
+		<ul>
+			<li><a href="../html/index.html"><div class = "button">About</div></a></li>
+			<li><a href="../html/reqservs.html"><div class = "button">Standard Services</div></a></li>
+			<li><a href="../html/security.html"><div class = "button">Security Requests</div></a></li>
+			<li><a href="../html/gift.html"><div class = "button">Gift Shop Requests</div></a></li>
+			<li><a href="../html/transport.html"><div class = "button">Transportation Requests</div></a></li>
+			<li><a href="../html/transform.html"><div class = "button">Affine Transformation</div></a></li>
+			<li><a href="../html/spill.html"><div class = "button">Spill Request</div></a></li>
+			<li><a href="../html/voice.html"><div class = "button">Voice Requests</div></a></li>
+			<li><a href="../html/rooms.html"><div class = "button">Room Service</div></a></li>
+			<li><a href="../html/sanitize.html"><div class = "button">Sanitation</div></a></li>
+			<li><a href="../html/prescribe.html"><div class = "button">Prescriptions</div></a></li>
+			<li><a href="../html/tech.html"><div class = "button">Tech Support</div></a></li>
+			<li><a href="../html/epic.html"><div class = "button">Epic Integration</div></a></li>
+			
+		</ul>
+	</nav>
+
+		<article class="article">
+			<h2>Affine Transformations</h2>
+			<p>Performs an affine transformation, converting 2D coordinates to 3D coordinates and vice versa.
+			</p>
+			<p>Import the point converter: import pointConverter.TeamD.API.PointConverter. The point converter provides two functions for conversion, both of which return a double[]: convertTo3D(xCoord2D, yCoord2D, floorString and convertTo2D(xCoord3D, yCoord3D, floorString). Valid floor strings by default are "3", "2", "1", "L1", "L2".</p>
+			<p>Custom transformations can be added using addTransform(floorString, twoDx1, twoDy1, twoDx2, twoDy2, twoDx3, twoDy3, threeDx1, threeDy1, threeDx2, threeDy2, threeDx3, threeDy4); this data comprises 6 points that should be in the same relative location corresponding to their number value.</p>
+			<p><strong>Gradle Install String: </strong>[group: 'd18.teamD', name: 'AffineTransformation', version: '1.1.0']</p>
+
+
+			<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:800px;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">/**</span>
+<span style="color: #888888">     * Sets a 2D coord for adding a location and prepares for the user to set the 3D.</span>
+<span style="color: #888888">     * It predicts where that 3D will be.</span>
+<span style="color: #888888">     * @param click</span>
+<span style="color: #888888">     */</span>
+    <span style="color: #008800; font-weight: bold">private</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">clickOptionAddLocation</span><span style="color: #333333">(</span>MouseEvent click<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+        predictor_type<span style="color: #333333">.</span><span style="color: #0000CC">setVisible</span><span style="color: #333333">(</span><span style="color: #008800; font-weight: bold">false</span><span style="color: #333333">);</span>
+        node_or_edge<span style="color: #333333">.</span><span style="color: #0000CC">setVisible</span><span style="color: #333333">(</span><span style="color: #008800; font-weight: bold">false</span><span style="color: #333333">);</span>
+        Scene scene <span style="color: #333333">=</span> add_loc<span style="color: #333333">.</span><span style="color: #0000CC">getScene</span><span style="color: #333333">();</span>
+        <span style="color: #333399; font-weight: bold">int</span> x_3d<span style="color: #333333">;</span>
+        <span style="color: #333399; font-weight: bold">int</span> y_3d<span style="color: #333333">;</span>
+        <span style="color: #008800; font-weight: bold">if</span><span style="color: #333333">(</span>predict_nn<span style="color: #333333">){</span>
+            Matrix predict_3d <span style="color: #333333">=</span> predictor<span style="color: #333333">.</span><span style="color: #0000CC">getNeuralNetPrediction</span><span style="color: #333333">((</span><span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">)</span> click<span style="color: #333333">.</span><span style="color: #0000CC">getX</span><span style="color: #333333">(),</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">)</span> click<span style="color: #333333">.</span><span style="color: #0000CC">getY</span><span style="color: #333333">());</span>
+            x_3d <span style="color: #333333">=</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">)</span> predict_3d<span style="color: #333333">.</span><span style="color: #0000CC">get</span><span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">);</span>
+            y_3d <span style="color: #333333">=</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">)</span> predict_3d<span style="color: #333333">.</span><span style="color: #0000CC">get</span><span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">);</span>
+        <span style="color: #333333">}</span> <span style="color: #008800; font-weight: bold">else</span> <span style="color: #333333">{</span>
+            <span style="color: #333399; font-weight: bold">double</span><span style="color: #333333">[]</span> affine_res <span style="color: #333333">=</span> predictor<span style="color: #333333">.</span><span style="color: #0000CC">getAffinePrediction</span><span style="color: #333333">((</span><span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">)</span> click<span style="color: #333333">.</span><span style="color: #0000CC">getX</span><span style="color: #333333">(),</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">)</span> click<span style="color: #333333">.</span><span style="color: #0000CC">getY</span><span style="color: #333333">(),</span> cur_floor_name<span style="color: #333333">);</span>
+            x_3d <span style="color: #333333">=</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">)</span> affine_res<span style="color: #333333">[</span><span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">];</span>
+            y_3d <span style="color: #333333">=</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">)</span> affine_res<span style="color: #333333">[</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">];</span>
+        <span style="color: #333333">}</span>
+
+
+        String loc_type_shortname <span style="color: #333333">=</span> locations<span style="color: #333333">.</span><span style="color: #0000CC">get</span><span style="color: #333333">(</span>loc_type<span style="color: #333333">.</span><span style="color: #0000CC">getValue</span><span style="color: #333333">().</span><span style="color: #0000CC">toString</span><span style="color: #333333">());</span>
+        new_node <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> edu<span style="color: #333333">.</span><span style="color: #0000CC">wpi</span><span style="color: #333333">.</span><span style="color: #0000CC">cs3733d18</span><span style="color: #333333">.</span><span style="color: #0000CC">teamS</span><span style="color: #333333">.</span><span style="color: #0000CC">data</span><span style="color: #333333">.</span><span style="color: #0000CC">Node</span><span style="color: #333333">(</span>generateNodeId<span style="color: #333333">(</span>loc_type_shortname<span style="color: #333333">),</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">)</span> click<span style="color: #333333">.</span><span style="color: #0000CC">getX</span><span style="color: #333333">(),</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">)</span> click<span style="color: #333333">.</span><span style="color: #0000CC">getY</span><span style="color: #333333">(),</span>
+                cur_floor_name<span style="color: #333333">,</span> building<span style="color: #333333">.</span><span style="color: #0000CC">getText</span><span style="color: #333333">(),</span> loc_type_shortname<span style="color: #333333">,</span> long_name<span style="color: #333333">.</span><span style="color: #0000CC">getText</span><span style="color: #333333">(),</span>
+                short_name<span style="color: #333333">.</span><span style="color: #0000CC">getText</span><span style="color: #333333">(),</span> <span style="background-color: #fff0f0">&quot;S&quot;</span><span style="color: #333333">,</span> x_3d<span style="color: #333333">,</span> y_3d<span style="color: #333333">,</span> <span style="color: #008800; font-weight: bold">false</span><span style="color: #333333">);</span>
+
+        toggle3D<span style="color: #333333">.</span><span style="color: #0000CC">setSelected</span><span style="color: #333333">(</span><span style="color: #008800; font-weight: bold">true</span><span style="color: #333333">);</span>
+        map<span style="color: #333333">.</span><span style="color: #0000CC">setImage</span><span style="color: #333333">(</span><span style="color: #008800; font-weight: bold">new</span> Image<span style="color: #333333">(</span>chooseFloor<span style="color: #333333">()));</span>
+        pane<span style="color: #333333">.</span><span style="color: #0000CC">getChildren</span><span style="color: #333333">().</span><span style="color: #0000CC">clear</span><span style="color: #333333">();</span>
+        pane<span style="color: #333333">.</span><span style="color: #0000CC">getChildren</span><span style="color: #333333">().</span><span style="color: #0000CC">add</span><span style="color: #333333">(</span>map<span style="color: #333333">);</span>
+
+        temp_pin <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Circle<span style="color: #333333">(</span>new_node<span style="color: #333333">.</span><span style="color: #0000CC">getXCoord3D</span><span style="color: #333333">(),</span> new_node<span style="color: #333333">.</span><span style="color: #0000CC">getYCoord3D</span><span style="color: #333333">(),</span> <span style="color: #0000DD; font-weight: bold">7</span><span style="color: #333333">,</span> color<span style="color: #333333">);</span>
+        temp_pin<span style="color: #333333">.</span><span style="color: #0000CC">setStroke</span><span style="color: #333333">(</span>Color<span style="color: #333333">.</span><span style="color: #0000CC">BLACK</span><span style="color: #333333">);</span>
+        temp_pin<span style="color: #333333">.</span><span style="color: #0000CC">setStrokeWidth</span><span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">3</span><span style="color: #333333">);</span>
+        pane<span style="color: #333333">.</span><span style="color: #0000CC">getChildren</span><span style="color: #333333">().</span><span style="color: #0000CC">add</span><span style="color: #333333">(</span>temp_pin<span style="color: #333333">);</span>
+        confirm_3d<span style="color: #333333">.</span><span style="color: #0000CC">setVisible</span><span style="color: #333333">(</span><span style="color: #008800; font-weight: bold">true</span><span style="color: #333333">);</span>
+        scene<span style="color: #333333">.</span><span style="color: #0000CC">setCursor</span><span style="color: #333333">(</span>Cursor<span style="color: #333333">.</span><span style="color: #0000CC">DEFAULT</span><span style="color: #333333">);</span>
+        add_node_box<span style="color: #333333">.</span><span style="color: #0000CC">setVisible</span><span style="color: #333333">(</span><span style="color: #008800; font-weight: bold">false</span><span style="color: #333333">);</span>
+        button_pane<span style="color: #333333">.</span><span style="color: #0000CC">setVisible</span><span style="color: #333333">(</span><span style="color: #008800; font-weight: bold">false</span><span style="color: #333333">);</span>
+    <span style="color: #333333">}</span>
+</pre></div>
+
+
+
+
+		</article>
+
+		<footer>Mathew Schwartzman</footer>
+
+	</div>
+
+
+</body>
+</html>

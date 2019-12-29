@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<SCRIPT LANGUAGE="javascript" src = "../javascript/main.js"></SCRIPT>
+	<link rel="stylesheet" href="../css/styles.css">
+	
+	<title>Squonk API</title>
+	
+</head>
+
+
+<body>
+	<div class="flex-container">
+	<header>
+		<a href="../html/index.html">
+			<div class = "logo">
+				<img src = "../media/squonks.jpg">
+			</div>
+		</a>
+		<div class = "subject">
+			<h1>SQUONK</h1>
+		</div>
+		
+	</header>
+
+	<nav class = "nav">
+		<ul>
+			<li><a href="../html/index.html"><div class = "button">About</div></a></li>
+			<li><a href="../html/reqservs.html"><div class = "button">Standard Services</div></a></li>
+			<li><a href="../html/security.html"><div class = "button">Security Requests</div></a></li>
+			<li><a href="../html/gift.html"><div class = "button">Gift Shop Requests</div></a></li>
+			<li><a href="../html/transport.html"><div class = "button">Transportation Requests</div></a></li>
+			<li><a href="../html/transform.html"><div class = "button">Affine Transformation</div></a></li>
+			<li><a href="../html/spill.html"><div class = "button">Spill Request</div></a></li>
+			<li><a href="../html/voice.html"><div class = "button">Voice Requests</div></a></li>
+			<li><a href="../html/rooms.html"><div class = "button">Room Service</div></a></li>
+			<li><a href="../html/sanitize.html"><div class = "button">Sanitation</div></a></li>
+			<li><a href="../html/prescribe.html"><div class = "button">Prescriptions</div></a></li>
+			<li><a href="../html/tech.html"><div class = "button">Tech Support</div></a></li>
+			<li><a href="../html/epic.html"><div class = "button">Epic Integration</div></a></li>
+			
+		</ul>
+	</nav>
+
+		<article class="article">
+			<h2>Standard Services</h2>
+			<p>Standard Internal Service Requests are handled through an SQL database that stores each request for viewing by Administrative users later. The createService function shown below takes in a user input String for title, a Node as a location to be serviced, and a secondary User as the desired fulfiller. 
+			</p>
+
+			<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:800px;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> ServiceRequest <span style="color: #0066BB; font-weight: bold">createService</span><span style="color: #333333">(</span>String title<span style="color: #333333">,</span> String description<span style="color: #333333">,</span> ServiceType type<span style="color: #333333">,</span> User requester<span style="color: #333333">,</span> Node location<span style="color: #333333">,</span> User desired_fulfiller<span style="color: #333333">,</span> Boolean to_epic<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+        	ServiceRequest sr <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> ServiceRequest<span style="color: #333333">(</span>title<span style="color: #333333">,</span> description<span style="color: #333333">,</span> type<span style="color: #333333">,</span> requester<span style="color: #333333">,</span> location<span style="color: #333333">,</span> desired_fulfiller<span style="color: #333333">);</span>
+       		<span style="color: #008800; font-weight: bold">if</span><span style="color: #333333">(</span>to_epic<span style="color: #333333">)</span> <span style="color: #333333">{</span> EpicWrapper<span style="color: #333333">.</span><span style="color: #0000CC">send2Epic</span><span style="color: #333333">(</span>sr<span style="color: #333333">);</span> <span style="color: #333333">}</span>
+        	<span style="color: #008800; font-weight: bold">return</span> sr<span style="color: #333333">;</span>
+    		<span style="color: #333333">}</span>
+</pre></div>
+
+
+
+		</article>
+
+		<footer>Mathew Schwartzman</footer>
+
+	</div>
+
+
+</body>
+</html>
